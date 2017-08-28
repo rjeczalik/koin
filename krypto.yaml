@@ -1,0 +1,24 @@
+# Available data and functions:
+#
+#   .Network - value of eth network name
+#   .Owner   - value of hex-encdoded sender address
+#   .Values  - value of key-pair map values
+#
+#   value "key"   - returns value for the given key
+#   quote "value" - returns quoted string
+#
+contracts:
+- name: koin
+  path: koin.sol
+  constructor:
+  # network function returns name of the eth network
+  # the contract is being deployed, e.g. if the network
+  # is rinkeby, the following is equal to writing:
+  #
+  # - "1000"
+  #
+  - {{value .Network | quote}}
+values:
+  rinkeby: "1000"
+  kovan:   "100"
+  mainnet: "10"
